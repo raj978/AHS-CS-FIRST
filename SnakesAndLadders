@@ -1,0 +1,79 @@
+import random as ra
+
+input("Computer🤖: Welcome to the game of Snakes 🐍 and Ladders🪜!!")
+
+
+def ladder_checker(SUM):
+    LaddersStart = [2, 4, 9, 33, 52, 80]
+    LaddersStop = [38, 14, 31, 84, 88, 99]
+    for i in range(4):
+        if LaddersStart[i] == SUM:
+            return LaddersStop[i]
+        else:
+            return SUM
+
+
+def snake_checker(Sum):
+    SnakesStart = [51, 56, 62, 92, 98]
+    SnakesStop = [11, 15, 36, 53, 8]
+    for i in range(5):
+        if SnakesStart[i] == Sum:
+            return SnakesStop[i]
+        else:
+            return Sum
+
+
+def singleplayer(name):
+    # When the variable Game is sorting, it has the variable Playing stored in it
+    UserGame = "Playing"
+    CompGame = "Playing"
+    user_pos = 0
+    comp_pos = 0
+    while UserGame == "Playing" and CompGame == "Playing":
+        print("Computer🤖: ", name, " its your turn!")
+        text = input()
+        user_spin = ra.randint(1, 6)
+        if text == "":
+            print("Computer🤖: ", name, "you rolled 🎲 a", user_spin)
+        old_u_pos = user_pos
+        if user_pos + user_spin < 100:
+            user_pos = user_pos + user_spin
+            print("Computer🤖: You moved ♙ from ", old_u_pos, " to ", user_pos)
+            old_u_pos = user_pos
+            user_pos = ladder_checker(user_pos)
+            if old_u_pos != user_pos:
+                print("Computer🤖: Yay!, ", name, " you climbed a ladder 🪜 from ", old_u_pos, " to ", user_pos)
+            old_u_pos = user_pos
+            user_pos = snake_checker(user_pos)
+            if old_u_pos != user_pos:
+                print("Computer🤖: ", name, "Oh noooo, a snake 🐍 bit you and you fell from ", old_u_pos, " to ",
+                      user_pos)
+        elif user_pos + user_spin >= 100:
+            return "User Complete"
+
+        comp_spin = ra.randint(1, 6)
+        print("Computer🤖: I spun 🎲 ", comp_spin)
+        old_c_pos = comp_pos
+        if comp_pos + comp_spin < 100:
+            comp_pos = comp_pos + comp_spin
+            print("Computer🤖: I moved ♙ from ", old_c_pos, " to ", comp_pos)
+            old_c_pos = comp_pos
+            comp_pos = ladder_checker(comp_pos)
+            if old_c_pos != comp_pos:
+                print("Computer🤖: Yesss, I climbed a ladder 🪜 from ", old_c_pos, " to ", comp_pos)
+            old_c_pos = comp_pos
+            comp_pos = snake_checker(comp_pos)
+            if old_c_pos != comp_pos:
+                print("Computer🤖: Oh noooo, a snake 🐍 bit me and I fell from ", old_c_pos, " to ", comp_pos)
+        elif comp_pos + comp_spin >= 100:
+            return "Computer Complete"
+
+
+print("------------------------------------------------------")
+Name = str(input("Computer🤖: Please enter your name below:\n-->"))
+game = singleplayer(Name)
+if game == "Computer Complete":
+    print("Computer🤖: Oh No, ", Name, "! You Lost :( Better Luck Next Time...")
+else:
+    print("Computer🤖: Yay! ", Name, ", Congratulations to you! You beat me ;)")
+print("------------------------------------------------------")
