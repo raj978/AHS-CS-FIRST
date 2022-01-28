@@ -1,0 +1,98 @@
+name = str(input("Sorting Hat 🎓: Hey there whats your name ? (ENTER your name below) \n---> "))
+print()
+print("Sorting Hat 🎓: Hi,", name, "!! Hope Hogwarts🧙🏻 didn't fail to amaze you. As a part of Hogwarts' Tradition,\n"
+                                   " now you are going to be assigned a House 🏠️.")
+print()
+input("Sorting Hat : Press the ENTER Key to progress through the Storyline.....")
+print()
+print("**Your ❮name❯ is called and you take a short but brisk walk🚶🏻 to the podium🎙, and start staring at the "
+      "Sorting Hat🎩**")
+print()
+input("Sorting Hat 🎓: Come on now, put me on your head💀 ! Don't be scared😱 !!")
+print()
+print("**The Sorting Hat is now about to start giving you a few Unique Situation select the one, that best"
+      " matches your real life reaction to it")
+print()
+print(name, ": Ok OK")
+print()
+input("Sorting Hat 🎓: With just Just 5 Questions, I will be able to \n identify which House you belong to")
+print()
+userInput = int(input("SO, are you readyyyyyyy ?🤔 \n [1] : To Start the game \n [0] : TO Stop the game\n"))
+
+while userInput != 0:
+    print("----------------------------------------------------------------------------------------------------------")
+    input("Situation 1: THE HOUSES AT A YARD SALE 🏷")
+    input("Sorting Hat 🎓: You are at a yard Sale, what would be your most likely reaction? 😮")
+    print("A. 25 cents would be a STEAL if these textbooks weren’t so out of date. Whatever. I’ll take them all.\n"
+          "B. I’m buying a scented candle for everyone I know, and then some. Just in case there’s someone I’m "
+          "forgetting.\n"
+          "C. This antique cup would make a great Horcrux… if it weren’t Muggle-made.\n"
+          "D. What a score! Look at all these old journals I found, and books that come with annotations! There’s no"
+          " way this could go horribly wrong!")
+    Q1 = str(input("You Reaction (Enter the capital letter only) ---> "))
+    print("----------------------------------------------------------------------------------------------------------")
+    input("Situation 2: THE HOUSES AT A BARBEQUE")
+    input("Sorting Hat 🎓: You are at a Barbeque, what would be your most likely reaction? 😮")
+    print("A. That potato salad has been sitting in the sun for three hours. It is a mayo-based  vessel of death or at"
+          " least food poisoning, and I’m not touching it.\n"
+          "B. No, you should have the last hotdog. I’ll even grill it for you.\n"
+          "C. Either the Dark Lord is summoning me, or I just forgot to put sunscreen on my forearm.\n"
+          "D. I’m no hero—I just do the things other people won’t. I’m going to bow my head, grit my teeth, and eat"
+          " that potato salad.")
+    Q2 = str(input("You Reaction (Enter the capital letter only) ---> "))
+    print("----------------------------------------------------------------------------------------------------------")
+    input("Situation 3: THE HOUSES AT A MOVIE THEATER")
+    input("Sorting Hat 🎓: You are at a Movie Theater, what would be your most likely reaction? 😮")
+    print("A. None of these options seem cerebral enough, you know? Who wants to go home and watch a nine-part "
+          "documentary on the Civil War?\n"
+          "B. You want to go splitskies on a large popcorn? I’m buying.\n"
+          "C. I’m going to the bathroom, and if a single Milk Dud is missing when I return, you’re dead to me.\n"
+          "D. If there were no exploding cars, was it really even a Michael Bay movie? What was the point?")
+    Q3 = str(input("You Reaction (Enter the capital letter only) ---> "))
+    print("----------------------------------------------------------------------------------------------------------")
+    input("Situation 4: THE HOUSES AT A SWIMMING POOL")
+    input("Sorting Hat 🎓: You are at a Swimming Pool, what would be your most likely reaction? 😮")
+    print("A. What a perfect place to stretch out on a towel and read and go nowhere near the water.\n"
+          "B. I thought someone should let you know that your suit is riding up in the back. Also, do you need "
+          "sunscreen? Goggles? Extra flip flops? I’ve got you covered.\n"
+          "C. What a perfect place to splash someone who’s reading on a towel.\n"
+          "D. Who’s up for a game of pool noodle Quidditch?")
+    Q4 = str(input("You Reaction (Enter the capital letter only) ---> "))
+    print("----------------------------------------------------------------------------------------------------------")
+    input("Situation 5: THE HOUSES AT A STATE FAIR")
+    input("Sorting Hat 🎓: You are at a State Fair, what would be your most likely reaction? 😮")
+    print("A. Don’t bother with the guy who guesses people’s ages and weights. It’s quite simple, really. Here’s "
+          "the trick…\n"
+          "B. Who wants to get matching airbrush tattoos? Anyone?\n"
+          "C. I have a basilisk I’d like to enter in the livestock division, I hope that’s cool.\n"
+          "D. Please direct me to your most terrifying ride. Don’t pull any punches. I crave fear.")
+    Q5 = str(input("You Reaction (Enter the capital letter only) ---> "))
+    print("----------------------------------------------------------------------------------------------------------")
+    userInput = 0
+    Ans = [Q1, Q2, Q3, Q4, Q5]
+
+print(str(Ans))
+
+ravenclaw = 0
+hufflepuff = 0
+slytherin = 0
+gryffindor = 0
+for char in range(5):
+    if Ans[char] == 'A':
+        ravenclaw += 1
+    elif Ans[char] == 'B':
+        hufflepuff += 1
+    elif Ans[char] == 'C':
+        slytherin += 1
+    elif Ans[char] == 'D':
+        gryffindor += 1
+    else:
+        pass
+ravenclaw = (ravenclaw / 5) * 100
+hufflepuff = (hufflepuff / 5) * 100
+slytherin = (slytherin / 5) * 100
+gryffindor = (gryffindor / 5) * 100
+
+print("Sorting Hat 🎓: ", name, ", you are ", ravenclaw, "% Ravenclaw, ", hufflepuff, "% Hufflepuff, ", slytherin,
+      "% Slytherin and, ", gryffindor, "% Gryffindor")
+
